@@ -17,20 +17,20 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const NoConnectionPage(title: 'Flutter Demo Home Page'),
+      home: const PaymentFailedPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class NoConnectionPage extends StatefulWidget {
-  const NoConnectionPage({super.key, required this.title});
+class PaymentFailedPage extends StatefulWidget {
+  const PaymentFailedPage({super.key, required this.title});
   final String title;
 
   @override
-  State<NoConnectionPage> createState() => _NoConnectionPageState();
+  State<PaymentFailedPage> createState() => _PaymentFailedPageState();
 }
 
-class _NoConnectionPageState extends State<NoConnectionPage> {
+class _PaymentFailedPageState extends State<PaymentFailedPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -38,26 +38,25 @@ class _NoConnectionPageState extends State<NoConnectionPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/9_Location Error.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset('images/errorScreens/15_Payment Error.png', fit: BoxFit.cover, height: context.height()),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('Location Access', style: boldTextStyle(size: 30)),
+                Text('Payment Failed', style: boldTextStyle(size: 30, color: Colors.black)),
                 16.height,
                 Text(
-                  'Please enable location access to use this feature',
-                  style: primaryTextStyle(size: 18, color: Colors.black54),
+                  'Your card was rejected by the vendor. Please try again',
+                  style: primaryTextStyle(size: 18, color: Colors.blueGrey),
                   textAlign: TextAlign.center,
                 ).paddingSymmetric(vertical: 8, horizontal: 40),
                 32.height,
                 AppButton(
-                  child: Text('ENABLE', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 32),
+                  child: Text('BACK', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 32),
                   shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
-                  elevation: 10,
-                  color: Color(0xFFE8772A),
+                  color: Color(0xFFF16F66),
                   padding: EdgeInsets.all(16),
                   onTap: () {
-                    toast('ENABLE');
+                    toast('BACK');
                   },
                 ),
                 100.height,
