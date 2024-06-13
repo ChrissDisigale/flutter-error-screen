@@ -38,30 +38,33 @@ class _ConnectionFailedPageState extends State<ConnectionFailedPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/19_Error.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset(
+              'images/errorScreens/8_404 Error.png',
+              fit: BoxFit.cover,
+              height: context.height(),
+            ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('Connection Failed', style: boldTextStyle(size: 30, color: Colors.black54)),
-                16.height,
-                Text(
-                  'Could not connect to the network, Please check & retry again.',
-                  style: primaryTextStyle(size: 18, color: Colors.black45),
-                  textAlign: TextAlign.center,
-                ).paddingSymmetric(vertical: 8, horizontal: 40),
+                Text('Dead End', style: primaryTextStyle(size: 40, color: white)),
                 32.height,
+                Text(
+                  'Opps! The page you are looking for doesn\'t exist...',
+                  style: primaryTextStyle(color: Colors.white60, size: 18),
+                ),
+                48.height,
                 AppButton(
-                  child: Text('RETRY', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 32),
+                  child: Text('HOME', style: boldTextStyle()),
+                  color: context.cardColor,
                   shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
-                  color: Color(0xFF5ECB42),
-                  padding: EdgeInsets.all(16),
+                  elevation: 10,
                   onTap: () {
-                    toast('RETRY');
+                    toast('HOME');
                   },
                 ),
-                100.height,
               ],
-            ),
+            ).paddingAll(32),
           ],
         ),
       ),
