@@ -38,28 +38,26 @@ class _NoConnectionPageState extends State<NoConnectionPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/10_Connection Lost.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset('images/errorScreens/13_Storage Not Enough.png', fit: BoxFit.cover, height: context.height()),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('No Connection', style: boldTextStyle(size: 30)),
+                Text('Not Enough Space', style: boldTextStyle(size: 20, color: Colors.black)),
                 32.height,
                 Text(
-                  'Your internet connection was interrupted, Please retry.',
-                  style: primaryTextStyle(color: Colors.blueGrey, size: 18),
-                ),
-                48.height,
+                  'You do not have enough storage left to save this file...',
+                  style: primaryTextStyle(size: 20, color: Colors.blueGrey),
+                ).paddingSymmetric(vertical: 8, horizontal: 8),
+                32.height,
                 AppButton(
-                  child: Text('RETRY', style: boldTextStyle(color: white)),
+                  child: Text('MANAGE', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 8),
                   shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
-                  elevation: 10,
                   color: Color(0xFF40588B),
                   onTap: () {
-                    toast('RETRY');
+                    toast('MANAGE');
                   },
                 ),
-                20.height,
               ],
             ).paddingAll(32),
           ],
