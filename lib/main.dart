@@ -38,37 +38,31 @@ class _NoConnectionPageState extends State<NoConnectionPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset(
-              'images/errorScreens/14_No Search Results.png',
-              fit: BoxFit.cover,
-              height: context.height(),
-              width: context.width(),
-            ),
+            Image.asset('images/errorScreens/9_Location Error.png', fit: BoxFit.cover, height: context.height()),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('No Results', style: secondaryTextStyle(size: 40, color: white)),
-                48.height,
+                Text('Location Access', style: boldTextStyle(size: 30)),
+                16.height,
                 Text(
-                  'Sorry there are no results for this search, Please try another phrase',
-                  style: primaryTextStyle(size: 20, color: Colors.white54),
+                  'Please enable location access to use this feature',
+                  style: primaryTextStyle(size: 18, color: Colors.black54),
+                  textAlign: TextAlign.center,
+                ).paddingSymmetric(vertical: 8, horizontal: 40),
+                32.height,
+                AppButton(
+                  child: Text('ENABLE', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 32),
+                  shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
+                  elevation: 10,
+                  color: Color(0xFFE8772A),
+                  padding: EdgeInsets.all(16),
+                  onTap: () {
+                    toast('ENABLE');
+                  },
                 ),
-                48.height,
-                AppTextField(
-                  textFieldType: TextFieldType.OTHER,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(16),
-                    filled: true,
-                    hintText: 'Search..',
-                    hintStyle: secondaryTextStyle(size: 16),
-                    suffixIcon: Icon(Icons.search, color: black),
-                    border: OutlineInputBorder(borderRadius: radius(30)),
-                    fillColor: context.cardColor,
-                  ),
-                ),
+                100.height,
               ],
-            ).paddingAll(32),
+            ),
           ],
         ),
       ),
