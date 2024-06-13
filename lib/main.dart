@@ -38,24 +38,27 @@ class _HangOnPageState extends State<HangOnPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/17_Location Error.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset('images/errorScreens/6_Error.png', fit: BoxFit.cover, height: context.height()),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('Hang on a sec..', style: secondaryTextStyle(size: 40, color: white)),
-                48.height,
-                Text('It seems you are in the middle of the ocean.', style: primaryTextStyle(size: 20, color: Colors.white54)),
+                Text('Hmmm..', style: primaryTextStyle(size: 40, color: white)),
+                32.height,
+                Text(
+                  'Something is wrong here...\n We\'ll fix it soon!',
+                  style: primaryTextStyle(color: Colors.white54, size: 18),
+                ),
                 48.height,
                 AppButton(
                   color: context.cardColor,
-                  child: Text('REFRESH', style: boldTextStyle()).paddingSymmetric(horizontal: 32),
+                  child: Text('HOME', style: boldTextStyle()).paddingSymmetric(horizontal: 32),
                   shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
+                  elevation: 10,
                   onTap: () {
-                    toast('REFRESH');
+                    toast('HOME');
                   },
                 ),
-                48.height,
               ],
             ).paddingAll(32),
           ],
