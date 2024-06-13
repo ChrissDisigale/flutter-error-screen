@@ -17,20 +17,20 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const ErrorPage(title: 'Flutter Demo Home Page'),
+      home: const HangOnPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class ErrorPage extends StatefulWidget {
-  const ErrorPage({super.key, required this.title});
+class HangOnPage extends StatefulWidget {
+  const HangOnPage({super.key, required this.title});
   final String title;
 
   @override
-  State<ErrorPage> createState() => _ErrorPageState();
+  State<HangOnPage> createState() => _HangOnPageState();
 }
 
-class _ErrorPageState extends State<ErrorPage> {
+class _HangOnPageState extends State<HangOnPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -38,31 +38,26 @@ class _ErrorPageState extends State<ErrorPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/7_Error.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset('images/errorScreens/17_Location Error.png', fit: BoxFit.cover, height: context.height()),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('Error!', style: boldTextStyle(size: 30, color: Colors.black)),
-                16.height,
-                Text(
-                  'Something went wrong, Please try again later',
-                  style: primaryTextStyle(size: 18, color: Colors.black54),
-                  textAlign: TextAlign.center,
-                ).paddingSymmetric(vertical: 8, horizontal: 40),
-                32.height,
+                Text('Hang on a sec..', style: secondaryTextStyle(size: 40, color: white)),
+                48.height,
+                Text('It seems you are in the middle of the ocean.', style: primaryTextStyle(size: 20, color: Colors.white54)),
+                48.height,
                 AppButton(
-                  child: Text('RETRY', style: boldTextStyle()).paddingSymmetric(horizontal: 32),
-                  shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
                   color: context.cardColor,
-                  elevation: 10,
-                  padding: EdgeInsets.all(16),
+                  child: Text('REFRESH', style: boldTextStyle()).paddingSymmetric(horizontal: 32),
+                  shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
                   onTap: () {
-                    toast('RETRY');
+                    toast('REFRESH');
                   },
                 ),
-                100.height,
+                48.height,
               ],
-            ),
+            ).paddingAll(32),
           ],
         ),
       ),
