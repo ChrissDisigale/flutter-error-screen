@@ -38,21 +38,21 @@ class _HangOnPageState extends State<HangOnPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/6_Error.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset('images/errorScreens/20_File Not Found.png', fit: BoxFit.cover, height: context.height()),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('Hmmm..', style: primaryTextStyle(size: 40, color: white)),
+                Text('No Files', style: primaryTextStyle(size: 40, color: white)),
                 32.height,
                 Text(
-                  'Something is wrong here...\n We\'ll fix it soon!',
+                  'Opps! The file you are looking for cannot be found...',
                   style: primaryTextStyle(color: Colors.white54, size: 18),
-                ),
+                ).paddingSymmetric(horizontal: 8),
                 48.height,
                 AppButton(
                   color: context.cardColor,
-                  child: Text('HOME', style: boldTextStyle()).paddingSymmetric(horizontal: 32),
+                  child: Text('HOME', style: boldTextStyle()),
                   shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
                   elevation: 10,
                   onTap: () {
