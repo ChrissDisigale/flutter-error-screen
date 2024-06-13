@@ -17,20 +17,20 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HangOnPage(title: 'Flutter Demo Home Page'),
+      home: const NoConnectionPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class HangOnPage extends StatefulWidget {
-  const HangOnPage({super.key, required this.title});
+class NoConnectionPage extends StatefulWidget {
+  const NoConnectionPage({super.key, required this.title});
   final String title;
 
   @override
-  State<HangOnPage> createState() => _HangOnPageState();
+  State<NoConnectionPage> createState() => _NoConnectionPageState();
 }
 
-class _HangOnPageState extends State<HangOnPage> {
+class _NoConnectionPageState extends State<NoConnectionPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -38,27 +38,28 @@ class _HangOnPageState extends State<HangOnPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/20_File Not Found.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset('images/errorScreens/10_Connection Lost.png', fit: BoxFit.cover, height: context.height()),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('No Files', style: primaryTextStyle(size: 40, color: white)),
+                Text('No Connection', style: boldTextStyle(size: 30)),
                 32.height,
                 Text(
-                  'Opps! The file you are looking for cannot be found...',
-                  style: primaryTextStyle(color: Colors.white54, size: 18),
-                ).paddingSymmetric(horizontal: 8),
+                  'Your internet connection was interrupted, Please retry.',
+                  style: primaryTextStyle(color: Colors.blueGrey, size: 18),
+                ),
                 48.height,
                 AppButton(
-                  color: context.cardColor,
-                  child: Text('HOME', style: boldTextStyle()),
+                  child: Text('RETRY', style: boldTextStyle(color: white)),
                   shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
                   elevation: 10,
+                  color: Color(0xFF40588B),
                   onTap: () {
-                    toast('HOME');
+                    toast('RETRY');
                   },
                 ),
+                20.height,
               ],
             ).paddingAll(32),
           ],
