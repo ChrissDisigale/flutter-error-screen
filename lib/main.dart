@@ -38,25 +38,34 @@ class _NoConnectionPageState extends State<NoConnectionPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset('images/errorScreens/13_Storage Not Enough.png', fit: BoxFit.cover, height: context.height()),
+            Image.asset(
+              'images/errorScreens/14_No Search Results.png',
+              fit: BoxFit.cover,
+              height: context.height(),
+              width: context.width(),
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('Not Enough Space', style: boldTextStyle(size: 20, color: Colors.black)),
-                32.height,
+                Text('No Results', style: secondaryTextStyle(size: 40, color: white)),
+                48.height,
                 Text(
-                  'You do not have enough storage left to save this file...',
-                  style: primaryTextStyle(size: 20, color: Colors.blueGrey),
-                ).paddingSymmetric(vertical: 8, horizontal: 8),
-                32.height,
-                AppButton(
-                  child: Text('MANAGE', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 8),
-                  shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
-                  color: Color(0xFF40588B),
-                  onTap: () {
-                    toast('MANAGE');
-                  },
+                  'Sorry there are no results for this search, Please try another phrase',
+                  style: primaryTextStyle(size: 20, color: Colors.white54),
+                ),
+                48.height,
+                AppTextField(
+                  textFieldType: TextFieldType.OTHER,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(16),
+                    filled: true,
+                    hintText: 'Search..',
+                    hintStyle: secondaryTextStyle(size: 16),
+                    suffixIcon: Icon(Icons.search, color: black),
+                    border: OutlineInputBorder(borderRadius: radius(30)),
+                    fillColor: context.cardColor,
+                  ),
                 ),
               ],
             ).paddingAll(32),
